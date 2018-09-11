@@ -6,11 +6,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
-import FolderIcon from '@material-ui/icons/Folder';
 import CompanyIcon from '@material-ui/icons/locationcity';
 import CategoryIcon from '@material-ui/icons/category';
-import QuoteIcon from '@material-ui/icons/assignment';
-import InventoryIcon from '@material-ui/icons/assignmentturnedin';
 
 const style = {
     menu:{
@@ -24,39 +21,18 @@ const style = {
 export const DrawerNavigation = (
     <div style={style.menu}>
 
-        <ListItem button component={Link} to="/category">
+        <ListItem button component={Link} to="/#">
             <ListItemIcon>
                 <CategoryIcon style={style.icon} />
             </ListItemIcon>
-            <ListItemText disableTypography  primary="Category" />
+            <ListItemText disableTypography  primary="Cat1" />
         </ListItem>
 
-        <ListItem button component={Link} to="/company">
+        <ListItem button component={Link} to="/#">
             <ListItemIcon>
                 <CompanyIcon style={style.icon} />
             </ListItemIcon>
-            <ListItemText disableTypography  primary="Company" />
-        </ListItem>
-
-        <ListItem button component={Link} to="/product">
-            <ListItemIcon>
-                <FolderIcon style={style.icon} />
-            </ListItemIcon>
-            <ListItemText disableTypography  primary="Product" />
-        </ListItem>
-
-        <ListItem button component={Link} to="/quote">
-            <ListItemIcon>
-                <QuoteIcon style={style.icon} />
-            </ListItemIcon>
-            <ListItemText disableTypography  primary="Quote" />
-        </ListItem>
-
-        <ListItem button component={Link} to="/inventory">
-            <ListItemIcon>
-                <InventoryIcon style={style.icon} />
-            </ListItemIcon>
-            <ListItemText disableTypography  primary="Inventory" />
+            <ListItemText disableTypography  primary="Cat2" />
         </ListItem>
 
         <Divider/>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import { userActions } from "../../../actions/user.actions";
+// import { userActions } from "../../../actions/user.actions";
 
 import { MaterialUiTextfield } from "../Helper/MaterialUiTextfield";
 
-import userValidator from "../../Validator/user.validator";
-import {resetValidators,updateValidators,isFormValid} from "../../Validator/ValidateHelper";
+// import userValidator from "../../Validator/user.validator";
+// import {resetValidators,updateValidators,isFormValid} from "../../Validator/ValidateHelper";
 
 import Button from '@material-ui/core/Button';
 
@@ -25,35 +25,35 @@ class RegisterPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
-        this.validators = userValidator;
-        this.validateOnSubmit= this.validateOnSubmit.bind(this);
+        // this.validators = userValidator;
+        // this.validateOnSubmit= this.validateOnSubmit.bind(this);
     }
 
 
-    validateOnSubmit() {
-
-            resetValidators(this.validators);
-
-            const {user} = this.state;
-
-            var inputSubmit = this.state.input;
-
-            var pdata,input
-            var viewDetailsData = this.state.user
-
-            for (pdata in viewDetailsData) {
-
-                user[pdata] = viewDetailsData[pdata];
-            }
-
-            this.setState({user});
-
-            var confirmedpw =this.state.user['confirmed_password'] === undefined ? ' ' :  this.state.user['confirmed_password']
-
-            for (input in inputSubmit) {
-                updateValidators(this.validators,inputSubmit[input], this.state.user[inputSubmit[input]],confirmedpw);
-            }
-    }
+    // validateOnSubmit() {
+    //
+    //         resetValidators(this.validators);
+    //
+    //         const {user} = this.state;
+    //
+    //         var inputSubmit = this.state.input;
+    //
+    //         var pdata,input
+    //         var viewDetailsData = this.state.user
+    //
+    //         for (pdata in viewDetailsData) {
+    //
+    //             user[pdata] = viewDetailsData[pdata];
+    //         }
+    //
+    //         this.setState({user});
+    //
+    //         var confirmedpw =this.state.user['confirmed_password'] === undefined ? ' ' :  this.state.user['confirmed_password']
+    //
+    //         for (input in inputSubmit) {
+    //             updateValidators(this.validators,inputSubmit[input], this.state.user[inputSubmit[input]],confirmedpw);
+    //         }
+    // }
 
     handleChange(event) {
         const { user } = this.state;
@@ -62,17 +62,17 @@ class RegisterPage extends React.Component {
 
         var confirmedpw =this.state.user['confirmed_password'] === undefined ? ' ' :  this.state.user['confirmed_password']
 
-        updateValidators(this.validators,event.target.name, event.target.value,confirmedpw);
+       // updateValidators(this.validators,event.target.name, event.target.value,confirmedpw);
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        this.validateOnSubmit('submit')
-
-        if(isFormValid(this.validators)) {
-            const {dispatch} = this.props;
-            dispatch(userActions.register(this.state.user));
-        }
+        // this.validateOnSubmit('submit')
+        //
+        // if(isFormValid(this.validators)) {
+        //     const {dispatch} = this.props;
+        //     dispatch(userActions.register(this.state.user));
+        // }
     }
 
     render() {

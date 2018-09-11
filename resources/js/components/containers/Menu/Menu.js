@@ -3,6 +3,7 @@ import APPCONFIG from  "../../../constants/config";
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
+import history from '../../../routes/history'
 
 import { DrawerNavigation } from './DrawerNavigation';
 import {userActions} from "../../../actions/user.actions";
@@ -66,7 +67,7 @@ class MenuAppBar extends React.Component {
 
         this.state = {
             mobileOpen: false,
-            user: (!!(props.user)?props.user:false),
+            user:  JSON.parse(localStorage.getItem('user')),
             anchorEl: null,
         };
     }
@@ -93,8 +94,13 @@ class MenuAppBar extends React.Component {
     };
 
     handleLogout = () => {
-        const {dispatch} = this.props;
-        dispatch(userActions.logout(this.state.user))
+
+        localStorage.setItem('user', false);
+        location.reload();
+        history.push('/login');
+
+        // const {dispatch} = this.props;
+        // dispatch(userActions.logout(this.state.user))
     };
 
     render() {

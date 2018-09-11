@@ -5,6 +5,7 @@ import  history  from "../routes/history";
 import routes from "../routes/routes";
 import Menu  from './containers/Menu/Menu'
 import '../css/style.css'
+import APPCONFIG from  "../constants/config";
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -24,7 +25,7 @@ const styles = theme => ({
     content: {
         flexGrow: 1,
         zIndex: 0,
-        backgroundImage: `url(http://localhost/img/bg.jpg)`,
+        backgroundImage: `url(http://`+APPCONFIG.webUrl+`/img/bg.jpg)`,
         height:'100vh'
     },
 });
